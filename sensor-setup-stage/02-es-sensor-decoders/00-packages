@@ -1,0 +1,11 @@
+debhelper
+libitpp-dev
+libblas-dev
+liblapack-dev
+libfftw3-dev
+libboost-dev
+libboost-thread-dev
+libboost-system-dev
+libncurses5-dev
+python3-scipy
+python3-numpy

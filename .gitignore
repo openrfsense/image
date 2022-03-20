@@ -1,0 +1,12 @@
+# VScode settings
+.vscode/
+
+# Build output directory
+deploy/
+
+# Vagrant
+.vagrant/
+*.log
+
+# User-specific config file
+config

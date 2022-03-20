@@ -1,0 +1,33 @@
+# IMPORTANT: Sensor timezone
+TIMEZONE_DEFAULT=Europe/Rome
+
+# Default credentials. Change these for better security, especially if SSH is enabled
+FIRST_USER_NAME=openrf
+FIRST_USER_PASS=sense
+
+# Wireless configuration
+# Uncomment and fill with SSID, password and country of a network to automatically connect to WiFi
+# WPA_ESSID=foo
+# WPA_PASSWORD=bar
+# Accepts only standard country codes (e.g. US or IT or UK)
+# WPA_COUNTRY=IT
+
+# SSH configuration
+ENABLE_SSH=1
+# Public key from your .pub key file. Example value is the author's public RSA key
+# PUBKEY_SSH_FIRST_USER="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDrpChtgvTWrty+3oPlBKfzI5EgsM1eiCB+ZZE7fn67+BauWCNlo3sFjcJPFGudA+txoxKwGudddVq3CiHn+FER8xmtfl0wlk0I9mRy6UlsvgQtuPSdc/PYCyB6LKYX1ADem28wYB6HOlr9+QPZtdVU0G5qWv5Sac5o3Ynks3zH+Seld6gyjnnEiYDzQnD4lU0YhyRj5qhGLDVR1H7oTisv8nSfaWxYsc2DhJhOYBeUY5NFq3CVvDxWysS/MzS1dImJwls5JXY/5xRye0BGUvApkCMyPCkLkldoE8HQBddKnmPa1x5GtOQ4H56ddXwyI0fPuOkA5/TldNV01s1NDpZ leonardo@Laptop"
+# Disable username/password login for SSH and use only the public key above
+# PUBKEY_ONLY_SSH=1
+
+# Default keyboard layout
+# For standard Italian: it and "Italian (IT)" respectively
+KEYBOARD_KEYMAP=us
+KEYBOARD_LAYOUT="English (US)"
+
+# Don't modify these unless you know what you're doing
+IMG_NAME=sensor
+RELEASE=bullseye
+LOCALE_DEFAULT=en_US.UTF-8
+DEPLOY_ZIP=1
+USE_QCOW2=0
+STAGE_LIST="stage0 stage1 stage2 sensor-setup-stage"

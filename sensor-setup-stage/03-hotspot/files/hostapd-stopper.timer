@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable hostapd after 30 minutes, if it was started
+After=network.target hostapd.service
+Requires=hostapd.service
+Wants=hostapd.service
+
+[Timer]
+OnActive=30min
+ExecStart=/bin/systemctl stop hostapd
+
+[Install]
+WantedBy=timers.target
