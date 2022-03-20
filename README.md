@@ -15,7 +15,13 @@ You will first have to write yourself a `config` file using the provided example
 To start a build job, use:
 
 ```shell
-$ ./build-vagrant.sh
+$ ./build.sh
+```
+
+By default, a 64bit ARM image will be built. If you need a 32bit image (older Raspberry Pi or other 32bit ARM boards), use the following command:
+
+```shell
+$ PIGEN_BITS=32 ./build.sh
 ```
 
 If you want to allocate more resources for the VM, you can set the following environment variables:
