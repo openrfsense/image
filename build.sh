@@ -34,7 +34,11 @@ _cpus="${PIGEN_CPUS:-$(nproc --ignore 2)}"
 PIGEN_CPUS="$_cpus" vagrant up --provision
 
 _branch=arm64
-[[ "${PIGEN_BITS:-64}" = "32" ]] && _branch=master
+_suffix=-arm64
+[[ "${PIGEN_BITS:-64}" = "32" ]] && {
+    _branch=master
+    _suffix=armhf
+}
 
 vagrant rsync
 vagrant ssh -c bash <<EOF
@@ -48,7 +52,10 @@ cp -f config pi-gen
 
 pushd pi-gen || exit 1
 rm stage2/EXPORT_* || true
-sudo ./build.sh
+
+export IMG_SUFFIX="$_suffix"
+export IMG_DATE="$(date +%Y%m%d)"
+sudo -E ./build.sh
 
 git reset --hard
 rm -rf sensor-setup-stage

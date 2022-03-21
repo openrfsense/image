@@ -86,7 +86,7 @@ Vagrant.configure("2") do |config|
 
         pgh.vm.provision "shell", privileged: true, inline: <<-SCRIPT
         #!/bin/bash
-        echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+        echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
         locale-gen en_US.UTF-8
         SCRIPT
         pgh.vm.provision :shell, inline: $set_environment_variables
