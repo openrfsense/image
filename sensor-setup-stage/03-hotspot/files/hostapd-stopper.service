@@ -1,0 +1,5 @@
+[Unit]
+Description=Disable hostapd after 30 minutes, if it was started
+
+[Service]
+ExecStart=/usr/bin/orfs-ap-off.sh

@@ -33,6 +33,8 @@ fi
 _cpus="${PIGEN_CPUS:-$(nproc --ignore 2)}"
 PIGEN_CPUS="$_cpus" vagrant up --provision
 
+# Switch to armhf (master branch of pi-gen) if PIGEN_BITS is set to 32
+# otherwise, use the arm64 branch
 _branch=arm64
 _suffix=-arm64
 [[ "${PIGEN_BITS:-64}" = "32" ]] && {
@@ -51,12 +53,15 @@ cp -rf sensor-setup-stage pi-gen
 cp -f config pi-gen
 
 pushd pi-gen || exit 1
+# We're ading another stage so avoid generating the image after stage2
 rm stage2/EXPORT_* || true
 
+# Add architecture and date to the image file name
 export IMG_SUFFIX="$_suffix"
 export IMG_DATE="$(date +%Y%m%d)"
 sudo -E ./build.sh
 
+# Cleanup
 git reset --hard
 rm -rf sensor-setup-stage
 rm config
@@ -64,3 +69,5 @@ popd || exit 1
 EOF
 
 vagrant scp pi-gen-host:/home/vagrant/project/pi-gen/deploy .
+# Remove the output directory from the VM to avoid pulling everything again on next build
+vagrant ssh -c "sudo rm -rf /home/vagrant/project/pi-gen/deploy"

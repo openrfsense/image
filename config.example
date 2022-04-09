@@ -2,8 +2,8 @@
 TIMEZONE_DEFAULT=Europe/Rome
 
 # Default credentials. Change these for better security, especially if SSH is enabled
-FIRST_USER_NAME=openrf
-FIRST_USER_PASS=sense
+FIRST_USER_NAME=pi
+FIRST_USER_PASS=raspberry
 
 # Wireless configuration
 # Uncomment and fill with SSID, password and country of a network to automatically connect to WiFi
@@ -11,6 +11,8 @@ FIRST_USER_PASS=sense
 # WPA_PASSWORD=bar
 # Accepts only standard country codes (e.g. US or IT or UK)
 # WPA_COUNTRY=IT
+# Hotspot password for Web UI access on boot. Defaults to "openrfsense"
+# AP_PASSWORD=openrfsense
 
 # SSH configuration
 ENABLE_SSH=0
